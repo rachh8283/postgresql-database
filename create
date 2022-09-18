@@ -1,0 +1,78 @@
+CREATE TABLE transactions (
+	trans_id CHAR(5) NOT NULL,
+	is_dvd BOOLEAN,
+	is_vhs BOOLEAN,
+	rent_date DATE, 
+	return_date DATE, 
+	initial_price NUMERIC,
+	tax NUMERIC,
+	stand_fees NUMERIC,
+	late_fee NUMERIC,
+	damage_fee NUMERIC,
+	no_rewind_fee NUMERIC,
+	discount NUMERIC,
+	trans_total NUMERIC,
+	PRIMARY KEY (trans_id)
+);
+CREATE TABLE customer (
+	cust_id CHAR(5) NOT NULL,
+	trans_id CHAR(5),
+	fname VARCHAR(50), 
+	lname VARCHAR(50),
+	phone CHAR(15), 
+	email VARCHAR(50), 
+	PRIMARY KEY (cust_id),
+	FOREIGN KEY (trans_id) REFERENCES transactions (trans_id) ON DELETE SET NULL
+);
+
+CREATE TABLE distributor (
+	dist_id CHAR(5) NOT NULL,
+	co_name VARCHAR(50),
+	st_address VARCHAR (50),
+	city VARCHAR(50),
+	st CHAR (2),
+	zip CHAR(10),
+	PRIMARY KEY (dist_id)
+);
+
+CREATE TABLE director (
+	direct_id CHAR(5) NOT NULL,
+	direct_lname VARCHAR (50) NOT NULL,
+	direct_fname VARCHAR (50) NOT NULL,
+	PRIMARY KEY (direct_id)
+);
+CREATE TABLE performer (
+	perf_id CHAR(5) NOT NULL,
+	perf_lname VARCHAR (50) NOT NULL,
+	perf_fname VARCHAR (50) NOT NULL,
+	PRIMARY KEY (perf_id)
+);
+CREATE TABLE award (
+	award_id CHAR (5) NOT NULL,
+	award_type VARCHAR (100),
+	PRIMARY KEY (award_id)
+);
+CREATE TABLE movies (
+	movie_id CHAR(5) NOT NULL,
+	dist_id CHAR(5),
+	direct_id CHAR(5), 
+	perf_id CHAR(5),
+	trans_id CHAR(5),
+	award_id CHAR (5),
+	dist_mov_id VARCHAR(15),
+	dvd_id CHAR(5),
+	dist_dvd_id VARCHAR(15),
+	vhs_id CHAR(5),
+	dist_vhs_id VARCHAR(15),
+	title VARCHAR (100),
+	genre VARCHAR (50),
+	rating CHAR(5),
+	runtime NUMERIC,
+	rel_year NUMERIC(4,0),
+	PRIMARY KEY (movie_id),
+	FOREIGN KEY (dist_id) REFERENCES distributor(dist_id) ON DELETE SET NULL,
+	FOREIGN KEY (direct_id) REFERENCES director(direct_id) ON DELETE SET NULL,
+	FOREIGN KEY (perf_id) REFERENCES performer(perf_id) ON DELETE SET NULL,
+	FOREIGN KEY (trans_id) REFERENCES transactions(trans_id) ON DELETE SET NULL,
+	FOREIGN KEY (award_id) REFERENCES award(award_id) ON DELETE SET NULL
+);
