@@ -1,0 +1,48 @@
+INSERT INTO transactions (trans_id, is_dvd, is_vhs, rent_date, return_date, initial_price, tax, stand_fees, late_fee, damage_fee, no_rewind_fee, discount, trans_total) VALUES
+	('T1252', 'TRUE', 'FALSE', '2022-03-31', '2022-04-13', '5.45','0.25','1.25','0.00', '0.00', '0.00', '0.00', '6.95'),
+	('T2158', 'FALSE', 'TRUE', '2022-01-03', '2022-02-23', '3.50','0.15','1.25','3.25', '3.00', '1.50', '0.00', '12.65'),
+	('T2335', 'TRUE', 'FALSE', '2022-02-27', '2022-03-31', '5.45','0.25','1.25','3.00', '10.50', '0.00', '0.00', '20.45'),
+	('T6533', 'FALSE', 'TRUE', '2022-03-25', '2022-04-03', '3.50', '0.15','1.25','0.00','4.00', '1.50', '2.00', '8.40'),
+	('T4522', 'TRUE', 'FALSE', '2021-12-15', '2022-04-05', '5.45','0.25','1.25','7.00', '0.00', '0.00', '5.00', '8.95');
+
+INSERT INTO customer (cust_id, trans_id, fname, lname, phone, email) VALUES
+	('C1234', 'T1252', 'JOE','CICERO','(123) 456-7899','itsthis@hello.com'),
+	('C2345', 'T2158', 'SHIRLEY','CICERO','(123) 455-7859','itsnotthis@hello.com'),
+	('C3456', 'T2335', 'RACHAEL','PARKS','(443) 555-7899','hola@hello.com'),
+	('C5687', 'T2335', 'JEREMY','PARKS','(563) 465-7869','jeremys@hello.com'),
+	('C6366', 'T1252', 'SHIRAE','SANABRIA','(544) 675-6759','shay@hello.com');
+
+INSERT INTO distributor (dist_id, co_name, st_address, city, st, zip) VALUES
+	('DS258', 'SHIRL MOVIES', '124 Anywho Ln','Tampa', 'FL', '34567-2345'),
+	('DS548', 'JEREMY MEDIA CO', '1244 Anywho Ln','Land O Lakes', 'FL', '34467-2645'),
+	('DS452', 'GET UR MOVIES', '4555 Sunshine Ln','Denver', 'CO', '81125-5545'),
+	('DS876', 'MOVIE DISTRIBUTION', '5585 Sunny Way','Tampa', 'FL', '34567-2345'),
+	('DS125', 'GROWING HOME MEDIA', '12444 Wherever Dr','Tampa', 'FL', '34567-2345');
+
+INSERT INTO director (direct_id, direct_lname, direct_fname) VALUES
+	('DR458', 'SPIELBERG', 'STEVEN'),
+	('DR452', 'TARANTINO', 'QUENTIN'),
+	('DR125', 'CURTIS', 'RICHARD'),
+	('DR255', 'BURTON', 'TIM'),
+	('DR126', 'NOLAN', 'CHRISTOPHER');
+
+INSERT INTO performer (perf_id, perf_lname, perf_fname) VALUES
+	('PE233', 'PITT', 'BRAD'),
+	('PE456', 'JOLIE', 'ANGELINA'),
+	('PE886', 'DEPP', 'JOHNNY'),
+	('PE678', 'ROBERTS', 'JULIA'),
+	('PE854', 'HANKS', 'TOM');
+
+INSERT INTO award (award_id, award_type) VALUES
+	('OSC01', 'Best Picture'),
+	('OSC02', 'Best Actor'),
+	('OSC03', 'Best Actress'),
+	('OSC04', 'Best Director'),
+	('OSC05', 'Best Original Screenplay');
+
+INSERT INTO movies (movie_id, dist_id, direct_id, perf_id, trans_id, award_id, dist_mov_id, dvd_id, dist_dvd_id, vhs_id, dist_vhs_id, title, genre, rating, runtime, rel_year) VALUES
+	('MOV12', 'DS258', 'DR458', 'PE233', 'T1252', 'OSC01', 'DSSMMOV1', 'DVD45', 'DSSMDVD1', 'VHS56', 'DSSMVHS1', 'This Great Movie','Thriller', 'R','103.45', '2000'),
+	('MOV23', 'DS548', 'DR452', 'PE886', 'T2158', 'OSC02', 'DSJMMOV2', 'DVD56','DSJMDVD3', 'NULL', 'NULL', 'This Cult Classic','Drama', 'R','90.50', '2006'),
+	('MOV34', 'DS452', 'DR125', 'PE678', 'T2335', 'OSC03', 'DSJMMOV3', 'NULL', 'NULL', 'VHS45', 'DSSMVHS3', 'This Super Comedy Movie','Comedy', 'PG-13','100.15', '1999'),
+	('MOV45', 'DS876', 'DR255', 'PE854', 'T6533', 'OSC04', 'DSSMMOV4', 'DVD65', 'DSSMDVD5', 'VHS58', 'DSSMVHS8', 'This Animated Adventure Movie','Action Adventure', 'PG-13','110.00', '2010'),
+	('MOV56', 'DS125', 'DR126', 'PE456', 'T4522', 'OSC05', 'DSSMMOV7', 'DVD55', 'DSSMDVD7', 'VHS36', 'DSSMVHS6', 'This Great Drama Movie','Drama Indie', 'PG-13','98.45', '2019');
