@@ -2,7 +2,7 @@
 This is a project to create, insert data, and query the database in PostgreSQL.
 
 # Project Description
-Johnson Video Store owners are implementing their first relational database to replace paper files and scattered digital records. 
+Johnson Video Store owners are implementing their first relational database to replace paper files and scattered digital records. There are three files in this repository. Meta data was created and stored in a separate excel file. Database tables outlined in the metadata document were created using PostgreSQL to develop and execute a SQL script file. Data definition language (DDL) and data manipulation language (DML) include specific commands to create, modify, and update database object structures, including views, tables, indexes, and schemas. DDL scripts include statements such as CREATE TABLE and CREATE VIEW, while DML scripts include INSERT, DELETE, and UPDATE.  
 
 ## Business Requirements/Rules
 Observation of operations and discussions with Johnson Video Store owners revealed several requirements and business rules for the new database. These rules include the following:
@@ -35,4 +35,4 @@ Observation of operations and discussions with Johnson Video Store owners reveal
 
 •	Each movie should be able to have unlimited performers, directors, and Academy Awards. 
 
-Metadata was created and stored in an excel file. Database tables outlined in the metadata document were created using PostgreSQL to develop and execute a SQL script file. Data definition language (DDL) and data manipulation language (DML) include specific commands to create, modify, and update database object structures, including views, tables, indexes, and schemas. DDL scripts include statements such as CREATE TABLE and CREATE VIEW, while DML scripts include INSERT, DELETE, and UPDATE.
+Metadata was created and stored in an excel file. 
