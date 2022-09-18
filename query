@@ -1,0 +1,22 @@
+-- Look for customer names, accounts, and transactions
+
+SELECT *
+	FROM customer, transactions
+	WHERE customer.trans_id=transactions.trans_id;
+
+-- DVDs rented within 30 days, chronological by rental date
+
+SELECT is_dvd, rent_date
+	FROM transactions
+	WHERE is_dvd = TRUE
+	AND rent_data >= NOW() - INTERVAL '30 days'
+	ORDER BY rent_date ASC;
+
+-- Update a customer last name
+UPDATE customer SET lname = 'AVERY'
+	WHERE lname = 'CICERO'
+	AND fname = 'SHIRLEY';
+
+-- Delete a customer from database
+DELETE FROM customer
+	WHERE cust_id = 'C1234'
