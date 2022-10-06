@@ -1,4 +1,4 @@
-# sql-create-insert-query
+# sql-create-insert-query in PostgreSQL
 This is a project to create, insert data, and query the database in PostgreSQL.
 
 # Project Description
